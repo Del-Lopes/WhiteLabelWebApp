@@ -55,22 +55,22 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: BRAND_CONFIG.colors.secondary }}>
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: BRAND_CONFIG.colors.primaryLight }}>
+      <div className="max-w-md w-full rounded-2xl shadow-2xl p-8 border" style={{ backgroundColor: BRAND_CONFIG.colors.secondary, borderColor: 'rgba(255,255,255,0.1)' }}>
         <div className="text-center mb-8">
           <div className="flex flex-col items-center gap-3 mb-6">
             <div className="w-16 h-16">
               <Logo className="w-full h-full" variant="mobile" />
             </div>
-            <span className="text-2xl font-bold tracking-tight text-slate-900">
+            <span className="text-2xl font-bold tracking-tight text-white">
               {BRAND_CONFIG.name}
             </span>
           </div>
           
-          <h1 className="text-xl font-medium text-slate-600">
+          <h1 className="text-xl font-medium text-slate-300">
             {mode === 'signin' ? 'Bem-vindo' : mode === 'signup' ? 'Criar nova conta' : 'Recuperar Senha'}
           </h1>
-          <p className="text-slate-500 mt-2 text-sm">
+          <p className="text-slate-400 mt-2 text-sm">
             {mode === 'signin' 
               ? `Entre para acessar a área de membros da ${BRAND_CONFIG.name}` 
               : mode === 'signup'
@@ -96,7 +96,7 @@ export const Login: React.FC = () => {
         <form onSubmit={handleAuth} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Nome Completo</label>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Nome Completo</label>
               <input
                 type="text"
                 required
@@ -108,7 +108,7 @@ export const Login: React.FC = () => {
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Email</label>
             <input
               type="email"
               required
@@ -121,7 +121,7 @@ export const Login: React.FC = () => {
           
           {mode !== 'forgot' && (
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Senha</label>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Senha</label>
               <input
                 type="password"
                 required
@@ -139,7 +139,7 @@ export const Login: React.FC = () => {
                       setError(null);
                       setMessage(null);
                     }}
-                    className="text-xs text-blue-600 hover:text-blue-700 font-medium"
+                    className="text-xs text-blue-400 hover:text-blue-300 font-medium"
                   >
                     Esqueceu a senha?
                   </button>
@@ -173,7 +173,7 @@ export const Login: React.FC = () => {
                 setError(null);
                 setMessage(null);
               }}
-              className="text-sm text-slate-600 hover:text-blue-600 font-medium transition-colors"
+              className="text-sm text-slate-400 hover:text-white font-medium transition-colors"
             >
               Voltar para Login
             </button>
@@ -184,7 +184,7 @@ export const Login: React.FC = () => {
                 setError(null);
                 setMessage(null);
               }}
-              className="text-sm text-slate-600 hover:text-blue-600 font-medium transition-colors"
+              className="text-sm text-slate-400 hover:text-white font-medium transition-colors"
             >
               {mode === 'signin' 
                 ? 'Não tem uma conta? Crie agora' 
