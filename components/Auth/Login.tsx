@@ -57,9 +57,9 @@ export const Login: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: BRAND_CONFIG.colors.primaryLight }}>
-      <div className="max-w-md w-full rounded-2xl shadow-2xl p-8 border" style={{ backgroundColor: BRAND_CONFIG.colors.secondary, borderColor: 'rgba(255,255,255,0.1)' }}>
-        <div className="text-center mb-4">
-          <div className="flex flex-col items-center gap-2 mb-4">
+      <div className="max-w-md w-full rounded-2xl shadow-2xl p-6 border" style={{ backgroundColor: BRAND_CONFIG.colors.secondary, borderColor: 'rgba(255,255,255,0.1)' }}>
+        <div className="text-center mb-2">
+          <div className="flex flex-col items-center mb-2">
             <div className="w-64 h-auto">
               <img 
                 src={BRAND_CONFIG.logo.full} 
