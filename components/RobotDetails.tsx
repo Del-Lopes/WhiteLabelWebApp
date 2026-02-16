@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Download, ShieldCheck, Activity, BarChart2, BookOpen, Edit2, X, Save, Plus, Trash2, ExternalLink, ZoomIn } from 'lucide-react';
 import { Robot, UserRole } from '../types';
+import { BRAND_CONFIG } from '../lib/branding';
 
 interface RobotDetailsProps {
   robot: Robot;
@@ -67,7 +68,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-500 hover:text-green-600 transition-colors group self-start"
+          className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors group self-start"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           <span>Voltar para Estratégias</span>
@@ -79,11 +80,11 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                type="text"
                value={formData.status}
                onChange={(e) => handleChange('status', e.target.value)}
-               className="px-3 py-1 rounded-full text-sm font-semibold border bg-white border-green-300 text-slate-700 focus:outline-none focus:border-green-500 w-32"
+               className="px-3 py-1 rounded-full text-sm font-semibold border bg-white border-blue-300 text-slate-700 focus:outline-none focus:border-blue-500 w-32"
                placeholder="Corretora"
              />
            ) : (
-              <span className="px-3 py-1 rounded-full text-sm font-semibold border bg-green-100 text-green-700 border-green-200">
+              <span className="px-3 py-1 rounded-full text-sm font-semibold border bg-blue-100 text-blue-700 border-blue-200">
                 {formData.status}
               </span>
            )}
@@ -98,7 +99,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                 <>
                   <button 
                     onClick={handleSave}
-                    className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors shadow-sm"
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors shadow-sm"
                   >
                     <Save size={16} /> Salvar
                   </button>
@@ -112,7 +113,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
               ) : (
                 <button 
                   onClick={() => setIsEditing(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 hover:border-green-500 hover:text-green-600 text-slate-600 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 hover:border-blue-500 hover:text-blue-600 text-slate-600 rounded-lg transition-colors"
                 >
                   <Edit2 size={16} /> Editar
                 </button>
@@ -136,7 +137,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                       type="text" 
                       value={formData.name}
                       onChange={(e) => handleChange('name', e.target.value)}
-                      className="text-3xl font-bold text-slate-900 border-b-2 border-green-500 focus:outline-none bg-transparent w-full"
+                      className="text-3xl font-bold text-slate-900 border-b-2 border-blue-500 focus:outline-none bg-transparent w-full"
                       placeholder="Nome do Robô"
                     />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -176,7 +177,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
 
               <div className="flex flex-wrap items-center gap-4 text-slate-500 text-sm">
                 <div className="flex items-center gap-1.5">
-                  <Activity size={16} className="text-green-600" />
+                   <Activity size={16} className="text-blue-600" />
                   Par: 
                   {isEditing ? (
                     <input 
@@ -191,7 +192,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                 </div>
 
                 <div className="flex items-center gap-1.5">
-                  <BarChart2 size={16} className={formData.profitability.includes('+') ? 'text-green-600' : 'text-red-500'} />
+                   <BarChart2 size={16} className={formData.profitability.includes('+') ? 'text-blue-600' : 'text-red-500'} />
                   Performance: 
                   {isEditing ? (
                      <input 
@@ -201,7 +202,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                       className="border border-slate-300 rounded px-2 py-0.5 w-24 text-slate-900 font-bold"
                     />
                   ) : (
-                    <strong className={formData.profitability.includes('+') ? 'text-green-600' : 'text-red-500'}>{formData.profitability}</strong>
+                    <strong className={formData.profitability.includes('+') ? 'text-blue-600' : 'text-red-500'}>{formData.profitability}</strong>
                   )}
                   {/* Verified MyFxBook Badge */}
                   {formData.myfxbook_url && (
@@ -234,7 +235,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
 
             <div className="prose prose-slate max-w-none">
               <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-                <ShieldCheck size={20} className="text-green-600" />
+                 <ShieldCheck size={20} className="text-blue-600" />
                 Sobre a Estratégia
               </h3>
               {isEditing ? (
@@ -242,7 +243,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                   value={formData.description}
                   onChange={(e) => handleChange('description', e.target.value)}
                   rows={6}
-                  className="w-full mt-2 p-3 border border-slate-300 rounded-lg text-slate-600 leading-relaxed focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
+                  className="w-full mt-2 p-3 border border-slate-300 rounded-lg text-slate-600 leading-relaxed focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                   placeholder="Descrição da estratégia..."
                 />
               ) : (
@@ -258,7 +259,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
                   href={formData.external_url ? (formData.external_url.startsWith('http') ? formData.external_url : `https://${formData.external_url}`) : '#'}
                   target="_blank"
                   rel="noreferrer"
-                  className={`w-full sm:w-auto flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg shadow-green-600/20 hover:shadow-green-600/30 transform hover:-translate-y-0.5 ${!formData.external_url ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                  className={`w-full sm:w-auto flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transform hover:-translate-y-0.5 ${!formData.external_url ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                 >
                   <ExternalLink size={20} />
                   Acessar Robô
@@ -271,7 +272,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
 
       {/* Operational Gallery */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between border-l-4 border-green-500 pl-2">
+        <div className="flex items-center justify-between border-l-4 border-blue-500 pl-2">
             <h3 className="text-xl font-bold text-slate-900">Operacional & Backtests</h3>
             {isEditing && (
                 <button 
@@ -314,7 +315,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
           {isEditing && (
             <button 
               onClick={() => addImage('images')}
-              className="border-2 border-dashed border-slate-300 hover:border-green-500 rounded-xl flex flex-col items-center justify-center text-slate-400 hover:text-green-600 bg-slate-50 hover:bg-green-50 transition-colors aspect-[4/3]"
+              className="border-2 border-dashed border-slate-300 hover:border-blue-500 rounded-xl flex flex-col items-center justify-center text-slate-400 hover:text-blue-600 bg-slate-50 hover:bg-blue-50 transition-colors aspect-[4/3]"
             >
               <Plus size={32} />
               <span className="text-sm font-medium">Adicionar Imagem</span>
@@ -326,7 +327,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
 
       {/* Manual Section */}
       <div className="space-y-4 pt-4 border-t border-slate-200">
-        <div className="flex items-center justify-between border-l-4 border-green-500 pl-2">
+        <div className="flex items-center justify-between border-l-4 border-blue-500 pl-2">
           <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
             <BookOpen size={24} className="text-slate-500" />
             Manual de Instalação e Parâmetros
@@ -334,7 +335,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
            {isEditing && (
               <button 
                 onClick={() => addImage('manualImages')}
-                className="flex items-center gap-1 text-sm font-semibold text-green-600 hover:underline"
+                className="flex items-center gap-1 text-sm font-semibold text-blue-600 hover:underline"
               >
                 <Plus size={16} /> Adicionar Página
               </button>
@@ -346,7 +347,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {formData.manualImages?.map((img, idx) => (
             <div key={idx} className="flex flex-col gap-2">
-              <span className="text-green-600 text-xs font-bold uppercase tracking-wider">Passo {idx + 1}</span>
+               <span className="text-blue-600 text-xs font-bold uppercase tracking-wider">Passo {idx + 1}</span>
               <div 
                 className={`rounded-xl border border-slate-200 overflow-hidden shadow-lg relative group ${!isEditing ? 'cursor-zoom-in' : ''}`}
                 onClick={!isEditing ? () => setViewingImage(img) : undefined}
@@ -381,7 +382,7 @@ export const RobotDetails: React.FC<RobotDetailsProps> = ({ robot, onBack, userR
            {isEditing && (
             <button 
               onClick={() => addImage('manualImages')}
-              className="border-2 border-dashed border-slate-300 hover:border-green-500 rounded-xl flex flex-col items-center justify-center text-slate-400 hover:text-green-600 bg-slate-50 hover:bg-green-50 transition-colors min-h-[200px]"
+              className="border-2 border-dashed border-slate-300 hover:border-blue-500 rounded-xl flex flex-col items-center justify-center text-slate-400 hover:text-blue-600 bg-slate-50 hover:bg-blue-50 transition-colors min-h-[200px]"
             >
               <Plus size={32} />
               <span className="text-sm font-medium">Adicionar Página do Manual</span>

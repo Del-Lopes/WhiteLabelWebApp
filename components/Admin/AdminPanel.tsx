@@ -289,7 +289,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
         <button
           onClick={() => setActiveTab('licenses')}
           className={`px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
-            activeTab === 'licenses' ? 'border-green-600 text-green-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+            activeTab === 'licenses' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'
           }`}
         >
           Licenças
@@ -297,7 +297,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
         <button
           onClick={() => setActiveTab('partners')}
           className={`px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
-            activeTab === 'partners' ? 'border-green-600 text-green-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+            activeTab === 'partners' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'
           }`}
         >
           Parceiros
@@ -305,7 +305,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
         <button
           onClick={() => setActiveTab('users')}
           className={`px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
-            activeTab === 'users' ? 'border-green-600 text-green-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+            activeTab === 'users' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'
           }`}
         >
           Usuários
@@ -313,7 +313,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
         <button
           onClick={() => setActiveTab('prospects')}
           className={`px-6 py-3 text-sm font-medium transition-colors border-b-2 ${
-            activeTab === 'prospects' ? 'border-green-600 text-green-600' : 'border-transparent text-slate-500 hover:text-slate-700'
+            activeTab === 'prospects' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'
           }`}
         >
           Prospectos
@@ -328,7 +328,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
             placeholder="Buscar por nome, email ou telefone..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
+            className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
           />
         </div>
       )}
@@ -405,7 +405,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                           <>
                             <button 
                               onClick={() => handleLicenseAction(lic.id, 'approved')}
-                              className="p-1.5 text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Aprovar">
+                              className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Aprovar">
                               <CheckCircle size={18} />
                             </button>
                             <button 
@@ -464,7 +464,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                                              <div className="flex justify-end gap-2">
                                                 <button 
                                                     onClick={() => handlePartnerRequestAction(req, 'approved')}
-                                                    className="px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-500 text-xs font-bold shadow-sm transition-colors"
+                                                    className="px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-500 text-xs font-bold shadow-sm transition-colors"
                                                 >
                                                     Aprovar
                                                 </button>
@@ -518,7 +518,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                             <select
                             value={partner.role}
                             onChange={(e) => handleUpdateUserRole(partner.id, e.target.value)}
-                            className="px-2 py-1 border border-slate-300 rounded text-xs focus:ring-2 focus:ring-green-500 outline-none"
+                            className="px-2 py-1 border border-slate-300 rounded text-xs focus:ring-2 focus:ring-blue-500 outline-none"
                             autoFocus
                             onBlur={() => setEditingUserRole(null)}
                             >
@@ -583,7 +583,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                 }).map((user) => (
                   <tr key={user.id} className="hover:bg-slate-50 transition-colors">
                     <td className="px-6 py-4 font-medium text-slate-900 flex items-center gap-3">
-                         <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                         <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
                             <User size={16} />
                          </div>
                          {user.full_name || 'Sem nome'}
@@ -610,7 +610,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                           className={`px-2.5 py-1 rounded-full text-xs font-semibold uppercase border flex items-center gap-1 hover:opacity-80 transition-opacity ${
                             user.role === 'admin' ? 'bg-purple-100 text-purple-700 border-purple-200' :
                             user.role === 'first_mate' ? 'bg-blue-100 text-blue-700 border-blue-200' :
-                            user.role === 'partner' ? 'bg-green-100 text-green-700 border-green-200' :
+                            user.role === 'partner' ? 'bg-blue-100 text-blue-700 border-blue-200' :
                             'bg-slate-100 text-slate-700 border-slate-200'
                           }`}
                         >
@@ -659,7 +659,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                         alert('Erro ao criar: ' + e.message);
                     }
                 }}
-                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 text-sm font-medium transition-colors"
              >
                 <Plus size={16} /> Novo
              </button>
@@ -688,7 +688,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                             {editingProspect === prospect.id ? (
                                 <input 
                                     autoFocus
-                                    className="w-full bg-white border border-slate-300 rounded px-2 py-1 mb-1 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none font-bold text-slate-900"
+                                    className="w-full bg-white border border-slate-300 rounded px-2 py-1 mb-1 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-bold text-slate-900"
                                     defaultValue={prospect.full_name}
                                     onChange={(e) => handleUpdateField(prospect.id, 'full_name', e.target.value)}
                                     placeholder="Nome Completo"
@@ -710,7 +710,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                                             placeholder="Email"
                                        />
                                    ) : (
-                                       <a href={`mailto:${prospect.email}`} className="hover:text-green-600 truncate">{prospect.email || 'Sem email'}</a>
+                                       <a href={`mailto:${prospect.email}`} className="hover:text-blue-600 truncate">{prospect.email || 'Sem email'}</a>
                                    )}
                                 </div>
                                 <div className="flex items-center gap-2 text-slate-600">
@@ -723,7 +723,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                                             placeholder="Telefone (55...)"
                                        />
                                    ) : (
-                                       <a href={`https://wa.me/${prospect.phone.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="hover:text-green-600 truncate">{prospect.phone || 'Sem telefone'}</a>
+                                       <a href={`https://wa.me/${prospect.phone.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="hover:text-blue-600 truncate">{prospect.phone || 'Sem telefone'}</a>
                                    )}
                                 </div>
                             </div>
@@ -736,7 +736,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                                     prospect.status === 'new' ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100' :
                                     prospect.status === 'contacted' ? 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100' :
                                     prospect.status === 'negotiating' ? 'bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100' :
-                                    prospect.status === 'converted' ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' :
+                                    prospect.status === 'converted' ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100' :
                                     'bg-red-50 text-red-700 border-red-200 hover:bg-red-100'
                                 }`}
                              >
@@ -750,7 +750,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                         <td className="px-6 py-4 align-top text-slate-500">
                             {editingProspect === prospect.id ? (
                                 <textarea 
-                                    className="w-full bg-white border border-slate-300 rounded px-2 py-1 focus:ring-1 focus:ring-green-500 outline-none text-xs min-h-[60px]"
+                                    className="w-full bg-white border border-slate-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 outline-none text-xs min-h-[60px]"
                                     defaultValue={prospect.notes || ''}
                                     onChange={(e) => handleUpdateField(prospect.id, 'notes', e.target.value)}
                                     placeholder="Adicionar anotações..."
@@ -764,7 +764,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                                 {editingProspect === prospect.id ? (
                                     <button 
                                         onClick={() => setEditingProspect(null)}
-                                        className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors border border-green-200 bg-white shadow-sm"
+                                        className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-blue-200 bg-white shadow-sm"
                                         title="Concluir Edição"
                                     >
                                         <CheckCircle size={18} />
@@ -784,7 +784,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onShowTour }) =>
                                             rel="noreferrer"
                                             className={`p-2 rounded-lg transition-colors ${
                                                 prospect.phone 
-                                                ? 'text-green-600 hover:bg-green-50 hover:scale-105 transform' 
+                                                ? 'text-blue-600 hover:bg-blue-50 hover:scale-105 transform' 
                                                 : 'text-slate-300 cursor-not-allowed'
                                             }`}
                                             title={prospect.phone ? "Abrir WhatsApp" : "Sem telefone"}

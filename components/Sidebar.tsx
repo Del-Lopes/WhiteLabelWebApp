@@ -4,6 +4,7 @@ import { LayoutDashboard, TrendingUp, GraduationCap, Users, Key, LogOut, Setting
 import { View, UserRole } from '../types';
 import { useAuth } from '../contexts/AuthContext';
 import { Logo } from './Logo';
+import { BRAND_CONFIG } from '../lib/branding';
 
 interface SidebarProps {
   currentView: View;
@@ -45,10 +46,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => handleViewChange('dashboard')}
            >
              <div className="w-8 h-8">
-               <Logo className="w-full h-full text-green-500" />
+               <Logo className="w-full h-full text-blue-500" />
              </div>
              <h1 className="text-xl font-bold tracking-tight">
-               AFK Trade
+               {BRAND_CONFIG.name}
              </h1>
            </div>
           <button onClick={() => setIsOpen(false)} className="md:hidden text-slate-400 hover:text-white">
@@ -62,7 +63,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => handleViewChange('dashboard')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-              currentView === 'dashboard' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              currentView === 'dashboard' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
             <LayoutDashboard size={20} className={currentView === 'dashboard' ? 'animate-pulse' : ''} />
@@ -72,7 +73,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => handleViewChange('journey')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-              currentView === 'journey' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              currentView === 'journey' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
             <Map size={20} />
@@ -82,7 +83,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => handleViewChange('downloads')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-              currentView === 'downloads' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              currentView === 'downloads' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
             <Download size={20} />
@@ -93,7 +94,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => handleViewChange('strategies')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-              currentView === 'strategies' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              currentView === 'strategies' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
             <TrendingUp size={20} />
@@ -103,7 +104,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => handleViewChange('education')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-              currentView === 'education' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              currentView === 'education' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
             <GraduationCap size={20} />
@@ -113,7 +114,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={() => handleViewChange('licenses')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-              currentView === 'licenses' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              currentView === 'licenses' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
             <Key size={20} />
@@ -125,7 +126,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <button
               onClick={() => handleViewChange('marketing')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-                currentView === 'marketing' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                currentView === 'marketing' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <Users size={20} />
@@ -138,7 +139,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
              <button
               onClick={() => handleViewChange('marketing')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-                currentView === 'marketing' ? 'bg-green-600 text-white shadow-lg shadow-green-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                currentView === 'marketing' ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
               }`}
             >
               <Users size={20} />
@@ -182,11 +183,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="p-4 border-t border-slate-800">
           <div className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-800 transition-colors group cursor-pointer" onClick={() => handleViewChange('settings')}>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 font-bold">
+              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 font-bold">
                  {user?.email?.charAt(0).toUpperCase()}
               </div>
               <div className="text-left">
-                <p className="text-sm font-medium text-white group-hover:text-green-400 transition-colors">
+                <p className="text-sm font-medium text-white group-hover:text-blue-400 transition-colors">
                     {user?.user_metadata?.full_name || 'Usuário'}
                 </p>
                 <p className="text-xs text-slate-500 capitalize flex items-center gap-1">

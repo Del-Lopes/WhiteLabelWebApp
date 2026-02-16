@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../lib/supabase';
 import { Cpu, GraduationCap, TrendingUp, AlertCircle, Clock, Plus, Edit2, Trash2, X, Save, Map, ChevronRight, Download } from 'lucide-react';
 import { LicenseRequest, Article, View } from '../../types';
+import { BRAND_CONFIG } from '../../lib/branding';
 
 interface UserDashboardProps {
   onNavigate: (view: View) => void;
@@ -119,27 +120,27 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-bold text-slate-900">Olá, {user?.user_metadata?.full_name || 'Trader'}!</h2>
-        <p className="text-slate-500">Bem-vindo ao seu painel de controle.</p>
+        <p className="text-slate-500">Bem-vindo ao painel de controle da {BRAND_CONFIG.name}.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Journey Card (Start Here) */}
         <div 
           onClick={() => onNavigate('journey')}
-          className="bg-gradient-to-br from-indigo-600 to-indigo-700 p-6 rounded-2xl border border-transparent shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+          className="bg-gradient-to-br from-blue-600 to-blue-700 p-6 rounded-2xl border border-transparent shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 cursor-pointer group relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
           
           <div className="flex items-center gap-4 mb-4 relative z-10">
-            <div className="p-3 bg-white/20 text-white rounded-xl backdrop-blur-sm group-hover:bg-white group-hover:text-indigo-600 transition-colors">
+            <div className="p-3 bg-white/20 text-white rounded-xl backdrop-blur-sm group-hover:bg-white group-hover:text-blue-600 transition-colors">
               <Map size={24} />
             </div>
             <div>
-              <p className="text-sm text-indigo-100 font-medium">Novo por aqui?</p>
+              <p className="text-sm text-blue-100 font-medium">Novo por aqui?</p>
               <h3 className="text-lg font-bold text-white">Comece Por Aqui</h3>
             </div>
           </div>
-          <div className="text-xs text-indigo-100 relative z-10 flex items-center gap-1 font-medium">
+          <div className="text-xs text-blue-100 relative z-10 flex items-center gap-1 font-medium">
             <span>Siga a trilha do sucesso</span>
             <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
           </div>
@@ -165,10 +166,10 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
         {/* Strategies Card */}
         <div 
           onClick={() => onNavigate('strategies')}
-          className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer group"
+          className="bg-sky-50 p-6 rounded-2xl border border-sky-100 shadow-lg shadow-sky-500/10 hover:shadow-xl hover:shadow-sky-500/20 transition-all duration-300 cursor-pointer group"
         >
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-blue-100 text-blue-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+            <div className="p-3 bg-sky-100 text-sky-600 rounded-xl group-hover:bg-sky-600 group-hover:text-white transition-colors">
               <Cpu size={24} />
             </div>
             <div>
@@ -182,10 +183,10 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
         {/* Licenses Card */}
         <div 
           onClick={() => onNavigate('licenses')}
-          className="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-lg shadow-green-500/10 hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300 cursor-pointer group"
+          className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer group"
         >
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-green-100 text-green-600 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors">
+            <div className="p-3 bg-blue-100 text-blue-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
               <TrendingUp size={24} />
             </div>
             <div>
@@ -194,7 +195,7 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
             </div>
           </div>
            {activeLicenses.length > 0 ? (
-             <div className="text-xs text-green-600 font-medium">Operando normalmente</div>
+             <div className="text-xs text-blue-600 font-medium">Operando normalmente</div>
            ) : (
              <div className="text-xs text-yellow-600 font-medium">Nenhuma licença ativa</div>
            )}
@@ -203,18 +204,18 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
         {/* Courses Card (Renamed to Biblioteca) */}
         <div 
           onClick={() => onNavigate('education')}
-          className="bg-purple-50 p-6 rounded-2xl border border-purple-100 shadow-lg shadow-purple-500/10 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer group"
+          className="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg shadow-slate-900/10 hover:shadow-xl hover:shadow-slate-900/20 transition-all duration-300 cursor-pointer group"
         >
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-purple-100 text-purple-600 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
+            <div className="p-3 bg-slate-800 text-blue-400 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
               <GraduationCap size={24} />
             </div>
             <div>
-              <p className="text-sm text-slate-500 font-medium">Biblioteca</p>
-              <h3 className="text-lg font-bold text-slate-900">{coursesCount} Cursos Disponíveis</h3>
+              <p className="text-sm text-slate-400 font-medium">Biblioteca</p>
+              <h3 className="text-lg font-bold text-white">{coursesCount} Cursos Disponíveis</h3>
             </div>
           </div>
-          <div className="text-xs text-slate-400">Continue seus estudos</div>
+          <div className="text-xs text-slate-500">Continue seus estudos</div>
         </div>
       </div>
 
@@ -230,10 +231,10 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                 {activeLicenses.map((license) => (
                   <div key={license.id} className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                      <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                       <span className="font-mono font-medium text-slate-700">{license.mt5_account}</span>
                     </div>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full border border-green-200">
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full border border-blue-200">
                       ATIVO
                     </span>
                   </div>
@@ -245,7 +246,7 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                    <AlertCircle className="text-slate-400" />
                 </div>
                 <p className="text-slate-500 mb-2">Você ainda não tem licenças ativas.</p>
-                <p className="text-sm text-green-600 font-medium">Vá até a aba Licenças para solicitar.</p>
+                <p className="text-sm text-blue-600 font-medium">Vá até a aba Licenças para solicitar.</p>
               </div>
             )}
           </div>
@@ -257,7 +258,7 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                  {role === 'admin' && (
                      <button 
                          onClick={() => openArticleModal()} 
-                         className="text-xs bg-green-50 text-green-700 hover:bg-green-100 px-3 py-1.5 rounded-lg font-bold flex items-center gap-1 transition-colors"
+                         className="text-xs bg-blue-50 text-blue-700 hover:bg-blue-100 px-3 py-1.5 rounded-lg font-bold flex items-center gap-1 transition-colors"
                      >
                          <Plus size={14} /> Novo
                      </button>
@@ -274,7 +275,7 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                     >
                       <div className="flex justify-between items-start gap-3">
                           <div className="space-y-1 flex-1">
-                            <h4 className="text-sm font-semibold text-slate-800 group-hover:text-green-600 transition-colors">{article.title}</h4>
+                            <h4 className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">{article.title}</h4>
                             <p className="text-xs text-slate-500 line-clamp-2">{article.excerpt}</p>
                           </div>
                       </div>
@@ -282,14 +283,14 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                       <div className="mt-2 flex items-center justify-between">
                           <div className="flex items-center gap-2 text-[10px] text-slate-400">
                              <Clock size={10} /><span>{new Date(article.created_at || Date.now()).toLocaleDateString()}</span>
-                             <span>•</span><span className="text-green-600/80 uppercase font-semibold">{article.category || 'Geral'}</span>
+                             <span>•</span><span className="text-blue-600/80 uppercase font-semibold">{article.category || 'Geral'}</span>
                           </div>
                           
                           {role === 'admin' && (
                               <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                   <button 
                                     onClick={(e) => { e.stopPropagation(); openArticleModal(article); }}
-                                    className="p-1 text-slate-400 hover:text-green-600 hover:bg-white rounded shadow-sm"
+                                    className="p-1 text-slate-400 hover:text-blue-600 hover:bg-white rounded shadow-sm"
                                   >
                                       <Edit2 size={12} />
                                   </button>
@@ -328,23 +329,23 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                   <form onSubmit={handleSaveArticle} className="space-y-4">
                       <div>
                           <label className="block text-sm font-medium mb-1 text-slate-600">Título</label>
-                          <input type="text" required value={articleForm.title} onChange={e => setArticleForm({...articleForm, title: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500 transition-colors" placeholder="Ex: Análise do Ouro" />
+                          <input type="text" required value={articleForm.title} onChange={e => setArticleForm({...articleForm, title: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-blue-500 transition-colors" placeholder="Ex: Análise do Ouro" />
                       </div>
                       <div>
                           <label className="block text-sm font-medium mb-1 text-slate-600">Categoria</label>
-                          <input type="text" value={articleForm.category} onChange={e => setArticleForm({...articleForm, category: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500 transition-colors" placeholder="Ex: Forex, Crypto..." />
+                          <input type="text" value={articleForm.category} onChange={e => setArticleForm({...articleForm, category: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-blue-500 transition-colors" placeholder="Ex: Forex, Crypto..." />
                       </div>
                       <div>
                           <label className="block text-sm font-medium mb-1 text-slate-600">Resumo (Card)</label>
-                          <textarea rows={2} value={articleForm.excerpt} onChange={e => setArticleForm({...articleForm, excerpt: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500 transition-colors" placeholder="Breve descrição..." />
+                          <textarea rows={2} value={articleForm.excerpt} onChange={e => setArticleForm({...articleForm, excerpt: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-blue-500 transition-colors" placeholder="Breve descrição..." />
                       </div>
                       <div>
                           <label className="block text-sm font-medium mb-1 text-slate-600">Conteúdo Completo</label>
-                          <textarea rows={6} value={articleForm.content} onChange={e => setArticleForm({...articleForm, content: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500 transition-colors" placeholder="Texto completo da análise..." />
+                          <textarea rows={6} value={articleForm.content} onChange={e => setArticleForm({...articleForm, content: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-blue-500 transition-colors" placeholder="Texto completo da análise..." />
                       </div>
                       <div>
                           <label className="block text-sm font-medium mb-1 text-slate-600">Imagem URL (Opcional)</label>
-                          <input type="text" value={articleForm.image_url} onChange={e => setArticleForm({...articleForm, image_url: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500 transition-colors" placeholder="https://..." />
+                          <input type="text" value={articleForm.image_url} onChange={e => setArticleForm({...articleForm, image_url: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-blue-500 transition-colors" placeholder="https://..." />
                       </div>
                       <div>
                           <label className="block text-sm font-medium mb-1 text-slate-600">Galeria de Imagens (Uma URL por linha)</label>
@@ -352,12 +353,12 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({ onNavigate, onRead
                             rows={3} 
                             value={articleForm.gallery_urls_input} 
                             onChange={e => setArticleForm({...articleForm, gallery_urls_input: e.target.value})} 
-                            className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500 transition-colors" 
+                            className="w-full border rounded-lg px-3 py-2 outline-none focus:border-blue-500 transition-colors" 
                             placeholder="https://imagem1.jpg&#10;https://imagem2.jpg" 
                           />
                       </div>
                       <div className="pt-2">
-                        <button type="submit" className="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-500 shadow-lg shadow-green-600/20 transition-all transform hover:-translate-y-0.5">
+                        <button type="submit" className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-500 shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-0.5">
                             {editingArticle ? 'Salvar Alterações' : 'Publicar Artigo'}
                         </button>
                       </div>

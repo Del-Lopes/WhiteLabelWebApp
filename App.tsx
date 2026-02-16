@@ -8,6 +8,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { View, UserRole, Robot, Article } from './types';
 import { Logo } from './components/Logo';
 import { Login } from './components/Auth/Login';
+import { BRAND_CONFIG } from './lib/branding';
 // Removed duplicate ArticleView import
 
 // Lazy load components for performance optimization
@@ -85,27 +86,28 @@ function AppContent() {
 
 
   const getPageTitle = (view: View, article: Article | null) => {
+    const brand = BRAND_CONFIG.name;
     switch (view) {
-      case 'dashboard': return 'Início - AFK Trade';
-      case 'strategies': return 'Estratégias - AFK Trade';
-      case 'education': return 'Biblioteca - AFK Trade';
-      case 'course_player': return 'Aula - AFK Trade';
-      case 'marketing': return 'Marketing - AFK Trade';
-      case 'licenses': return 'Licenças - AFK Trade';
-      case 'admin': return 'Administração - AFK Trade';
-      case 'settings': return 'Configurações - AFK Trade';
-      case 'journey': return 'Sua Jornada - AFK Trade';
-      case 'downloads': return 'Downloads - AFK Trade';
-      case 'treasury': return 'Tesouraria - AFK Trade';
-      case 'article': return article ? `${article.title} - AFK Trade` : 'Artigo - AFK Trade';
-      default: return 'AFK Trade';
+      case 'dashboard': return `Início - ${brand}`;
+      case 'strategies': return `Estratégias - ${brand}`;
+      case 'education': return `Biblioteca - ${brand}`;
+      case 'course_player': return `Aula - ${brand}`;
+      case 'marketing': return `Marketing - ${brand}`;
+      case 'licenses': return `Licenças - ${brand}`;
+      case 'admin': return `Administração - ${brand}`;
+      case 'settings': return `Configurações - ${brand}`;
+      case 'journey': return `Sua Jornada - ${brand}`;
+      case 'downloads': return `Downloads - ${brand}`;
+      case 'treasury': return `Tesouraria - ${brand}`;
+      case 'article': return article ? `${article.title} - ${brand}` : `Artigo - ${brand}`;
+      default: return brand;
     }
   };
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen bg-slate-50">
         <Helmet>
-          <title>Login - AFK Trade</title>
+          <title>Login - {BRAND_CONFIG.name}</title>
         </Helmet>
         Loading...
       </div>
@@ -120,7 +122,7 @@ function AppContent() {
     return (
       <Suspense fallback={
         <div className="flex items-center justify-center h-full min-h-[400px]">
-          <Loader2 className="animate-spin text-green-600" size={40} />
+          <Loader2 className="animate-spin text-blue-600" size={40} />
         </div>
       }>
         {(() => {
@@ -178,10 +180,10 @@ function AppContent() {
   };
 
   return (
-    <div className="flex h-screen bg-slate-50 text-slate-900 font-sans selection:bg-green-500/30 selection:text-green-900">
+    <div className="flex h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-500/30 selection:text-blue-900">
       <Helmet>
         <title>{getPageTitle(currentView, selectedArticle)}</title>
-        <meta name="description" content="Plataforma de negociação algorítmica AFK Trade." />
+        <meta name="description" content={BRAND_CONFIG.seo.description} />
       </Helmet>
       <Sidebar 
         currentView={currentView} 
@@ -204,7 +206,7 @@ function AppContent() {
                <Logo className="w-full h-full" variant="mobile" />
              </div>
              <h1 className="text-lg font-bold text-slate-900">
-              AFK Trade
+              {BRAND_CONFIG.name}
             </h1>
           </div>
           <button 

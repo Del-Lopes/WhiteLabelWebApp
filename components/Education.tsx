@@ -336,7 +336,7 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
                        <label className="block text-sm font-medium mb-1">Descrição / Material de Apoio</label>
                        <textarea rows={4} value={lessonForm.description} onChange={e => setLessonForm({...lessonForm, description: e.target.value})} className="w-full border rounded-lg px-3 py-2 outline-none focus:border-green-500" placeholder="Sobre esta aula..." />
                   </div>
-                  <button type="submit" className="w-full bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-500 mt-2">Salvar Aula</button>
+                  <button type="submit" className="w-full bg-blue-600 text-white font-bold py-2 rounded-lg hover:bg-blue-500 mt-2">Salvar Aula</button>
               </form>
           </div>
       </div>
@@ -413,7 +413,7 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
               </div>
               <div className="p-6 border-t border-slate-100 flex justify-end gap-3 bg-slate-50 rounded-b-2xl">
                   <button onClick={() => setIsModalOpen(false)} className="px-4 py-2 text-slate-600 font-medium hover:bg-slate-200 rounded-lg">Cancelar</button>
-                  <button type="submit" form="course-form" className="px-6 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-500 shadow-lg">Salvar</button>
+                  <button type="submit" form="course-form" className="px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 shadow-lg">Salvar</button>
               </div>
           </div>
       </div>
@@ -440,7 +440,7 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
                    <div className="flex items-center gap-4">
                       <button 
                           onClick={() => setSelectedCourse(null)}
-                          className="p-2 hover:bg-slate-100 rounded-full text-slate-500 hover:text-green-600 transition-colors"
+                          className="p-2 hover:bg-slate-100 rounded-full text-slate-500 hover:text-blue-600 transition-colors"
                       >
                           <ArrowLeft size={24} />
                       </button>
@@ -575,7 +575,7 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
           </div>
         </div>
         {role === 'admin' && (
-            <button onClick={handleCreateClick} className="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2">
+            <button onClick={handleCreateClick} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2">
                 <Plus size={18} /> Novo Curso
             </button>
         )}
@@ -583,14 +583,14 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
 
       {/* Course List */}
       <section>
-        {loading ? <div className="flex justify-center py-12"><Loader2 className="animate-spin text-green-600" size={32} /></div> : 
+        {loading ? <div className="flex justify-center py-12"><Loader2 className="animate-spin text-blue-600" size={32} /></div> : 
         courses.length === 0 ? <div className="text-center py-10 bg-slate-50 rounded-xl text-slate-500">Nenhum curso disponível.</div> : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map((course) => (
               <div key={course.id} className="group flex flex-col h-full bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-all relative">
                 {role === 'admin' && (
                     <div className="absolute top-2 right-2 z-20 flex gap-2">
-                        <button onClick={(e) => { e.stopPropagation(); handleEditClick(course); }} className="p-2 bg-white/90 text-slate-600 hover:text-green-600 rounded-lg shadow-sm"><Edit2 size={16} /></button>
+                        <button onClick={(e) => { e.stopPropagation(); handleEditClick(course); }} className="p-2 bg-white/90 text-slate-600 hover:text-blue-600 rounded-lg shadow-sm"><Edit2 size={16} /></button>
                          {/* Delete would go here */}
                     </div>
                 )}
@@ -606,9 +606,9 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
                 <div className="p-4 flex-1 flex flex-col">
                     <h4 className="text-lg font-bold text-slate-900 mb-2">{course.title}</h4>
                     <p className="text-sm text-slate-500 line-clamp-2 mb-4 flex-1">{course.description}</p>
-                    <button 
+                     <button 
                         onClick={() => handleAccessCourse(course)}
-                        className="w-full mt-auto py-2 bg-slate-50 hover:bg-green-50 text-slate-600 hover:text-green-600 font-semibold rounded-lg text-sm transition-colors"
+                        className="w-full mt-auto py-2 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-blue-600 font-semibold rounded-lg text-sm transition-colors"
                     >
                         Acessar
                     </button>
@@ -659,7 +659,7 @@ export const Education: React.FC<EducationProps> = ({ onBack }) => {
                         onChange={e => setArticleForm({...articleForm, gallery_urls_input: e.target.value})} 
                         className="w-full border rounded-lg px-3 py-2" 
                       />
-                      <button type="submit" className="w-full bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-500">Salvar Artigo</button>
+                      <button type="submit" className="w-full bg-blue-600 text-white font-bold py-2 rounded-lg hover:bg-blue-500">Salvar Artigo</button>
                   </form>
               </div>
           </div>

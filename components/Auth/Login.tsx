@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { supabase } from '../../lib/supabase';
 import { Logo } from '../Logo';
 import { LogIn, AlertCircle, Loader2 } from 'lucide-react';
+import { BRAND_CONFIG } from '../../lib/branding';
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -62,7 +63,7 @@ export const Login: React.FC = () => {
               <Logo className="w-full h-full" variant="mobile" />
             </div>
             <span className="text-2xl font-bold tracking-tight text-slate-900">
-              AFK Trade
+              {BRAND_CONFIG.name}
             </span>
           </div>
           
@@ -71,7 +72,7 @@ export const Login: React.FC = () => {
           </h1>
           <p className="text-slate-500 mt-2 text-sm">
             {mode === 'signin' 
-              ? 'Entre para acessar a área de membros' 
+              ? `Entre para acessar a área de membros da ${BRAND_CONFIG.name}` 
               : mode === 'signup'
               ? 'Preencha seus dados para começar'
               : 'Digite seu email para receber o link'}
@@ -86,7 +87,7 @@ export const Login: React.FC = () => {
         )}
 
         {message && (
-          <div className="mb-6 p-4 bg-green-50 text-green-600 text-sm rounded-xl flex items-center gap-2 border border-green-100">
+          <div className="mb-6 p-4 bg-blue-50 text-blue-600 text-sm rounded-xl flex items-center gap-2 border border-blue-100">
             <AlertCircle size={16} className="shrink-0" />
             {message}
           </div>
@@ -101,7 +102,7 @@ export const Login: React.FC = () => {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 outline-none transition-all placeholder:text-slate-400"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400"
                 placeholder="Seu Nome"
               />
             </div>
@@ -113,7 +114,7 @@ export const Login: React.FC = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 outline-none transition-all placeholder:text-slate-400"
+              className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400"
               placeholder="seu@email.com"
             />
           </div>
@@ -126,7 +127,7 @@ export const Login: React.FC = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 outline-none transition-all placeholder:text-slate-400"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all placeholder:text-slate-400"
                 placeholder="••••••••"
               />
               {mode === 'signin' && (
@@ -138,7 +139,7 @@ export const Login: React.FC = () => {
                       setError(null);
                       setMessage(null);
                     }}
-                    className="text-xs text-green-600 hover:text-green-700 font-medium"
+                    className="text-xs text-blue-600 hover:text-blue-700 font-medium"
                   >
                     Esqueceu a senha?
                   </button>
@@ -150,7 +151,7 @@ export const Login: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-green-600/20 hover:shadow-green-600/30 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {loading ? (
               <Loader2 size={20} className="animate-spin" />
@@ -172,7 +173,7 @@ export const Login: React.FC = () => {
                 setError(null);
                 setMessage(null);
               }}
-              className="text-sm text-slate-600 hover:text-green-600 font-medium transition-colors"
+              className="text-sm text-slate-600 hover:text-blue-600 font-medium transition-colors"
             >
               Voltar para Login
             </button>
@@ -183,7 +184,7 @@ export const Login: React.FC = () => {
                 setError(null);
                 setMessage(null);
               }}
-              className="text-sm text-slate-600 hover:text-green-600 font-medium transition-colors"
+              className="text-sm text-slate-600 hover:text-blue-600 font-medium transition-colors"
             >
               {mode === 'signin' 
                 ? 'Não tem uma conta? Crie agora' 

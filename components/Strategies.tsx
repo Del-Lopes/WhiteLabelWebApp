@@ -4,6 +4,7 @@ import { Robot, UserRole, Product } from '../types';
 import { RobotDetails } from './RobotDetails';
 import { BackButton } from './BackButton';
 import { supabase } from '../lib/supabase';
+import { BRAND_CONFIG } from '../lib/branding';
 
 interface StrategiesProps {
   userRole: UserRole;
@@ -224,7 +225,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
             onClick={() => setSortOrder(current => current === 'desc' ? 'asc' : 'desc')}
             className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
               sortOrder 
-                ? 'bg-green-50 border-green-200 text-green-700' 
+                ? 'bg-blue-50 border-blue-200 text-blue-700' 
                 : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
             }`}
             title="Ordenar por Rentabilidade"
@@ -244,7 +245,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {sortedRobots.map((robot) => (
-            <div key={robot.id} className="group bg-white border border-slate-200 hover:border-green-500/50 rounded-xl p-5 transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-md cursor-pointer" onClick={() => setSelectedRobot(robot)}>
+            <div key={robot.id} className="group bg-white border border-slate-200 hover:border-blue-500/50 rounded-xl p-5 transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-md cursor-pointer" onClick={() => setSelectedRobot(robot)}>
               {/* Background Icon Decoration */}
               <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity text-slate-900 pointer-events-none">
                 <Activity size={80} />
@@ -256,12 +257,12 @@ export const Strategies: React.FC<StrategiesProps> = ({
                      <img src={robot.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
                    </div>
                 ) : (
-                  <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-green-600 group-hover:text-green-500 group-hover:border-green-500/30 transition-colors">
+                  <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-blue-600 group-hover:text-blue-500 group-hover:border-blue-500/30 transition-colors">
                     <Server size={24} />
                   </div>
                 )}
                 <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-full text-xs font-semibold border bg-green-100 text-green-700 border-green-200">
+                  <span className="px-2.5 py-1 rounded-full text-xs font-semibold border bg-blue-100 text-blue-700 border-blue-200">
                     {robot.status}
                   </span>
 
@@ -282,7 +283,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-green-700 transition-colors relative z-10">{robot.name}</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors relative z-10">{robot.name}</h3>
               <div className="text-sm text-slate-500 mb-6 flex items-center gap-2 relative z-10">
                 <span className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 border border-slate-200">{robot.version}</span>
                 <span>•</span>
@@ -294,7 +295,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                   <span className="text-xs text-slate-500 uppercase tracking-wider font-medium">Performance</span>
                   <div className="flex items-center gap-2">
                     <div className={`flex items-center gap-1.5 font-bold ${
-                      robot.profitability.startsWith('+') ? 'text-green-600' : 
+                      robot.profitability.startsWith('+') ? 'text-blue-600' : 
                       robot.profitability.startsWith('-') ? 'text-red-500' : 'text-slate-400'
                     }`}>
                       <TrendingUp size={14} />
@@ -316,7 +317,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                     )}
                   </div>
                 </div>
-                <span className="text-sm text-green-600 hover:text-green-700 font-medium hover:underline">
+                <span className="text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline">
                   Acessar &rarr;
                 </span>
               </div>
@@ -330,9 +331,9 @@ export const Strategies: React.FC<StrategiesProps> = ({
                 setModalMode('add');
                 setIsModalOpen(true);
               }}
-              className="border-2 border-dashed border-slate-300 hover:border-green-500/50 bg-slate-50 hover:bg-white rounded-xl p-5 flex flex-col items-center justify-center gap-3 text-slate-400 hover:text-green-600 transition-all min-h-[220px] group"
+              className="border-2 border-dashed border-slate-300 hover:border-blue-500/50 bg-slate-50 hover:bg-white rounded-xl p-5 flex flex-col items-center justify-center gap-3 text-slate-400 hover:text-blue-600 transition-all min-h-[220px] group"
             >
-              <div className="w-12 h-12 rounded-full bg-slate-200 group-hover:bg-green-100 flex items-center justify-center transition-colors">
+              <div className="w-12 h-12 rounded-full bg-slate-200 group-hover:bg-blue-100 flex items-center justify-center transition-colors">
                 <Plus size={24} />
               </div>
               <span className="font-medium">Gerenciar Robôs</span>
@@ -358,7 +359,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                 type="button"
                 onClick={() => setModalMode('add')}
                 className={`flex-1 pb-3 text-sm font-medium transition-colors relative ${
-                  modalMode === 'add' ? 'text-green-600 border-b-2 border-green-600' : 'text-slate-500 hover:text-slate-700'
+                  modalMode === 'add' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
                 Nova Estratégia
@@ -383,7 +384,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                     required
                     value={newRobot.name}
                     onChange={(e) => setNewRobot({...newRobot, name: e.target.value})}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all placeholder:text-slate-400"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-400"
                     placeholder="Ex: Alpha Global Trader"
                   />
                 </div>
@@ -394,7 +395,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                       type="text"
                       value={newRobot.version}
                       onChange={(e) => setNewRobot({...newRobot, version: e.target.value})}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all placeholder:text-slate-400"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-400"
                       placeholder="Ex: 20%"
                     />
                   </div>
@@ -405,7 +406,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                       required
                       value={newRobot.pair}
                       onChange={(e) => setNewRobot({...newRobot, pair: e.target.value})}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all placeholder:text-slate-400"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-400"
                       placeholder="Ex: EURUSD"
                     />
                   </div>
@@ -421,7 +422,7 @@ export const Strategies: React.FC<StrategiesProps> = ({
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 bg-green-600 hover:bg-green-500 text-white py-2.5 rounded-lg font-medium transition-colors shadow-lg shadow-green-600/20"
+                    className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-2.5 rounded-lg font-medium transition-colors shadow-lg shadow-blue-600/20"
                   >
                     Criar Estratégia
                   </button>

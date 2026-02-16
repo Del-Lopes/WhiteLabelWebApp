@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { BRAND_CONFIG } from '../lib/branding';
 
 interface LogoProps {
   className?: string;
@@ -10,8 +11,8 @@ export const Logo: React.FC<LogoProps> = ({ className, variant = 'default' }) =>
   if (variant === 'mobile') {
     return (
       <img 
-        src="/icon.png" 
-        alt="AFK Trade Mobile Logo" 
+        src={BRAND_CONFIG.logo.icon} 
+        alt={`${BRAND_CONFIG.name} Icon`} 
         className={className} 
       />
     );
@@ -19,8 +20,8 @@ export const Logo: React.FC<LogoProps> = ({ className, variant = 'default' }) =>
 
   return (
     <img 
-      src="/images/logo-icon.png" 
-      alt="AFK Trade Logo" 
+      src={BRAND_CONFIG.logo.full} 
+      alt={`${BRAND_CONFIG.name} Logo`} 
       className={className} 
     />
   );
