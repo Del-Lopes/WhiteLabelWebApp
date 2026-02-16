@@ -55,7 +55,7 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: BRAND_CONFIG.colors.secondary }}>
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
         <div className="text-center mb-8">
           <div className="flex flex-col items-center gap-3 mb-6">

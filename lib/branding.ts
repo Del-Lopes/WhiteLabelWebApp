@@ -2,11 +2,11 @@ export const BRAND_CONFIG = {
   name: 'Libertraders',
   companyName: 'Libertraders Financial Group',
   colors: {
-    primary: '#2563eb', // blue-600
-    primaryHover: '#1d4ed8', // blue-700
-    primaryLight: '#dbeafe', // blue-50
-    secondary: '#0f172a', // slate-900 (Dark Navy)
-    accent: '#3b82f6', // blue-500
+  primary: '#2563eb',       // Cor principal (ex: Azul)
+    primaryHover: '#1d4ed8',  // Cor no mouse (levemente mais escura)
+    primaryLight: '#f8e5cb',  // Cor de fundo leve (clara)
+    secondary: '#0d0f28',     // Cor de contraste (Dark)
+    accent: '#3b82f6',        // Cor de destaque secundário
   },
   logo: {
     icon: '/icon.png',
