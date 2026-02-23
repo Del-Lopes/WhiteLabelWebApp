@@ -165,8 +165,8 @@ export const BRAND_CONFIG = {
   colors: {
     primary: '#2563eb',       // Cor principal (ex: Azul)
     primaryHover: '#1d4ed8',  // Cor no mouse (levemente mais escura)
-    primaryLight: '#dbeafe',  // Cor de fundo leve (clara)
-    secondary: '#0f172a',     // Cor de contraste (Dark)
+    primaryLight: '#f8e5cb',  // Cor de fundo leve (clara)
+    secondary: '#0d0f28',     // Cor de contraste (Dark)
     accent: '#3b82f6',        // Cor de destaque secundário
   },
   logo: {

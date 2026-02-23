@@ -96,6 +96,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         // However, keeping this check for legacy compatibility or if the upgrade logic is strictly frontend-based (not recommended).
         // Since we now update profile.role directly in AdminPanel, the DB source of truth is profiles.role.
         
+        console.log("Role fetched from DB:", userRole);
         setRole(userRole);
       }
     } catch (error) {

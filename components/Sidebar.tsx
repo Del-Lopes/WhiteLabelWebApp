@@ -130,7 +130,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }`}
             >
               <Users size={20} />
-              <span className="font-medium">Painel do Parceiro</span>
+              <span className="font-medium">Painel Administrativo</span>
             </button>
           )}
 
@@ -174,7 +174,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 }`}
               >
                 <Settings size={20} />
-                <span className="font-medium">Painel Admin</span>
+                <span className="font-medium">Gestão Administrativa</span>
               </button>
           )}
 
@@ -193,7 +193,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <p className="text-xs text-slate-500 capitalize flex items-center gap-1">
                   {role === 'admin' && '👑 '}
                   {role === 'first_mate' && '🏴‍☠️ '}
-                  {role === 'first_mate' ? 'First Mate' : role === 'client' ? 'Usuário' : role}
+                  {role === 'admin' ? 'Administrador' : role === 'first_mate' ? 'First Mate' : role === 'client' ? 'Usuário' : role}
                 </p>
               </div>
             </div>
