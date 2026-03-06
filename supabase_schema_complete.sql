@@ -7,6 +7,7 @@
 create table if not exists public.profiles (
   id uuid references auth.users not null primary key,
   full_name text,
+  email text,
   role text check (role in ('admin', 'client', 'partner')) default 'client',
   mt5_account text,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
@@ -93,8 +94,8 @@ create policy "Admins can update requests." on public.license_requests for updat
 create or replace function public.handle_new_user()
 returns trigger as $$
 begin
-  insert into public.profiles (id, full_name, role)
-  values (new.id, new.raw_user_meta_data->>'full_name', 'client');
+  insert into public.profiles (id, full_name, role, email)
+  values (new.id, new.raw_user_meta_data->>'full_name', 'client', new.email);
   return new;
 end;
 $$ language plpgsql security definer;
