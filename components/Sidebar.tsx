@@ -22,6 +22,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setIsOpen,
 }) => {
   const { role, signOut, user } = useAuth();
+  console.log("Sidebar current role:", role);
   
   const handleViewChange = (view: View) => {
     setCurrentView(view);
