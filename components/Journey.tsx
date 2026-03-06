@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle2, ChevronRight, Lock, Map, Milestone, TrendingUp, Wallet, UserCheck, Play, Edit2, Save, X, Plus, Trash2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { BRAND_CONFIG } from '../lib/branding';
 
 interface JourneyProps {
   onBack: () => void;
@@ -23,8 +24,8 @@ interface Step {
 const INITIAL_STEPS: Step[] = [
   {
     id: 1,
-    title: "Boas-vindas à AFK Trade",
-    description: "Você já deu o primeiro passo! Agora você faz parte da elite do trading automatizado.",
+    title: `Boas-vindas à ${BRAND_CONFIG.name}`,
+    description: `Você já deu o primeiro passo! Agora você faz parte da elite do trading automatizado.`,
     status: "completed",
     iconType: 'UserCheck',
     actionLabel: "Ver Introdução",

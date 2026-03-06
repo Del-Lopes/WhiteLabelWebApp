@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, User, Clock, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Article } from '../../types';
 import { BackButton } from '../BackButton';
+import { BRAND_CONFIG } from '../../lib/branding';
 
 interface ArticleViewProps {
   article: Article;
@@ -71,7 +72,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onBack }) => 
             </div>
             <div className="flex items-center gap-2">
               <User size={16} className="text-green-600" />
-              <span>Equipe AFK Trade</span>
+              <span>Equipe {BRAND_CONFIG.name}</span>
             </div>
              <div className="flex items-center gap-2">
               <Clock size={16} className="text-green-600" />

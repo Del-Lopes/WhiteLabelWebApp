@@ -1,6 +1,6 @@
 {
-  "name": "AFK Trade",
-  "short_name": "AFK Trade",
+  "name": "Libertraders",
+  "short_name": "Libertraders",
   "description": "Plataforma de aprendizado e gestão para traders.",
   "start_url": "/",
   "display": "standalone",

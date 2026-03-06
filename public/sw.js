@@ -1,4 +1,4 @@
-const CACHE_NAME = 'afk-trade-v1';
+const CACHE_NAME = 'libertraders-trade-v1';
 const urlsToCache = [
   '/',
   '/index.html',

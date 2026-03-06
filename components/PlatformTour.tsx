@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, ChevronRight, ChevronLeft, Map, LayoutDashboard, Cpu, GraduationCap, Key, Users } from 'lucide-react';
+import { BRAND_CONFIG } from '../lib/branding';
 
 interface PlatformTourProps {
   onClose: () => void;
@@ -8,7 +9,7 @@ interface PlatformTourProps {
 
 const TOUR_STEPS = [
   {
-    title: "Bem-vindo à AFK Trade",
+    title: `Bem-vindo à ${BRAND_CONFIG.name}`,
     description: "Sua plataforma completa de trading algorítmico. Vamos fazer um tour rápido para você conhecer tudo!",
     icon: <LayoutDashboard size={48} className="text-green-500" />,
     image: "https://images.unsplash.com/photo-1611974765270-ca12586343bb?q=80&w=600&auto=format&fit=crop"
