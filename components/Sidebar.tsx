@@ -43,15 +43,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }`}>
         <div className="p-6 flex items-center justify-between">
            <div 
-              className="flex items-center gap-3 cursor-pointer"
+              className="flex items-center cursor-pointer"
               onClick={() => handleViewChange('dashboard')}
            >
-             <div className="w-8 h-8">
-               <Logo className="w-full h-full text-blue-500" />
-             </div>
-             <h1 className="text-xl font-bold tracking-tight">
-               {BRAND_CONFIG.name}
-             </h1>
+             <img src="/Logo horizontal.png" alt="Libertraders" className="h-14 w-auto" />
            </div>
           <button onClick={() => setIsOpen(false)} className="md:hidden text-slate-400 hover:text-white">
             <X size={24} />
