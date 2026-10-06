@@ -1,10 +1,10 @@
 # LiberTraders — Web Application
 
-A React and TypeScript web application developed for the LiberTraders product ecosystem.
+A React and TypeScript web application developed for the LiberTraders product ecosystem, with a focus on reusable product UI and backend-service integration.
 
 ## Overview
 
-The project provides a modern product interface built around reusable React components and integration with backend services.
+The project demonstrates practical frontend engineering for a product-oriented application, including responsive interfaces, service integration, SEO metadata and production builds.
 
 ## Tech Stack
 
@@ -14,6 +14,15 @@ The project provides a modern product interface built around reusable React comp
 - Supabase
 - React Helmet Async
 - Lucide React
+
+## Engineering Focus
+
+- Component-based frontend architecture
+- Responsive product UI
+- Backend integration
+- SEO metadata and document management
+- Reusable interface patterns
+- Production-oriented Vite builds
 
 ## Development
 
@@ -29,14 +38,8 @@ npm run build
 npm run preview
 ~~~
 
-## Engineering Focus
+## Portfolio Notes
 
-- Component-based frontend architecture
-- Responsive product UI
-- Backend integration
-- SEO metadata
-- Production-oriented Vite builds
+This project is a representative example of product-oriented frontend work and white-label application development.
 
-## Note
-
-This repository contains product-specific material. Public release should only happen after reviewing proprietary code, credentials, third-party assets and licensing requirements.
+Product-specific code, branding, third-party assets and other materials remain subject to applicable ownership, confidentiality and licensing terms.
